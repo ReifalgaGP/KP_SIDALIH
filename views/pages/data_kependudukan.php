@@ -26,6 +26,15 @@
                 <a href="app/print/data_kependudukan.php" target="_BLANK" class="btn btn-success">
                     <i class="fas fa-print"></i> Print
                 </a>
+                
+                    <form method="post" enctype="multipart/form-data" action="app/proses.php">
+                        <div class="form-group">
+                            <label for="exampleInputFile">File Upload</label>
+                            <input type="file" name="berkas_excel" class="form-control" id="exampleInputFile">
+                        </div>
+                            <button type="submit" class="btn btn-primary">Import</button>
+                        </form>
+              
                 <div class="card mt-3">
                     <div class="card-header">
                         <h3 class="card-title">Daftar Data Kependudukan</h3>
