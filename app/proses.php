@@ -27,10 +27,21 @@ if(isset($_FILES['berkas_excel']['name']) && in_array($_FILES['berkas_excel']['t
     $sheetData = $spreadsheet->getActiveSheet()->toArray();
 	for($i = 1;$i < count($sheetData);$i++)
 	{
-        $NIK = $sheetData[$i]['0'];
-        $NAMA = $sheetData[$i]['1'];
-        $PENDIDIKAN_TERAKHIR = $sheetData[$i]['2'];
-        mysqli_query($mysqli,"insert into tabel_pendidikan (NIK,NAMA,PENDIDIKAN_TERAKHIR) values ('$NIK','$NAMA','$PENDIDIKAN_TERAKHIR')");
+        $kecamatan = $sheetData[$i]['0'];
+        $kelurahan = $sheetData[$i]['1'];
+        $nik = $sheetData[$i]['2'];
+        $nama =$mysqli->real_escape_string($sheetData[$i]['3']);
+        $ttl = $sheetData[$i]['4'];
+        $status_kawin = $sheetData[$i]['5'];
+        $kelamin = $sheetData[$i]['6'];
+        $alamat = $sheetData[$i]['7'];
+        $rt_rw = $sheetData[$i]['8'];
+        $ektp = $sheetData[$i]['9'];
+        $disabilitas = $sheetData[$i]['10'];
+        $keterangan = $sheetData[$i]['11'];
+        $sumber = $sheetData[$i]['12'];
+        $tps = $sheetData[$i]['13'];
+        mysqli_query($mysqli,"insert into data_kecamatan_bayongbong (kecamatan, kelurahan, nik, nama, ttl, status_kawin, kelamin, alamat, rt_rw, disabilitas, ektp, keterangan, sumber, tps) values ('$kecamatan','$kelurahan','$nik','$nama','$ttl','$status_kawin','$kelamin','$alamat','$rt_rw','$disabilitas','$ektp','$keterangan','$sumber','$tps')");
     }
     header("Location: form_upload.php"); 
 }

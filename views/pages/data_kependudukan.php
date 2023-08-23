@@ -36,22 +36,50 @@
                             <table class="table table-bordered table-striped example3" style="font-size: 14px;">
                                 <thead>
                                     <tr>
-                                        <th>No KK</th>
+                                        <th>Kecamatan</th>
+                                        <th>Kelurahan</th>
                                         <th>NIK</th>
                                         <th>Nama</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Hubungan Keluarga</th>
-                                        <th>Tempat Tanggal Lahir</th>
-                                        <!-- <th>Agama</th> -->
-                                        <!-- <th>Pendidikan Terakhir</th> -->
-                                        <th>Pekerjaan Utama</th>
-                                        <th>Penghasilan per Bulan</th>
-                                        <th>Dusun</th>
+                                        <th>TTL</th>
+                                        <th>Status Kawin</th>
+                                        <th>Kelamin</th>
+                                        <th>Alamat</th>
+                                        <th>Rt/Rw</th>
+                                        <th>Disabilitas</th>
+                                        <th>EKTP</th>
+                                        <th>Keterangan</th>
+                                        <th>Sumber</th>
+                                        <th>TPS</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php tampil_data($mysqli); ?>
+                                     <?php
+                                        include "app/koneksi.php";
+                                        $query=mysqli_query($mysqli,"SELECT * FROM data_kecamatan_bayongbong");
+                                        $no=0;    
+                                        //menampilkan data
+                                        while($row=mysqli_fetch_array($query)){
+                                    ?>
+                                    <tr>
+                                        <td align="center"><?php echo $row['kecamatan'];?></td>
+                                        <td align="center"><?php echo $row['kelurahan']; ?></td>
+                                        <td align="center"><?php echo $row['nik'];?></td>
+                                        <td align="center"><?php echo $row['nama'];?></td>
+                                        <td align="center"><?php echo $row['ttl'];?></td>
+                                        <td align="center"><?php echo $row['status_kawin'];?></td>
+                                        <td align="center"><?php echo $row['kelamin'];?></td>
+                                        <td align="center"><?php echo $row['alamat'];?></td>
+                                        <td align="center"><?php echo $row['rt_rw'];?></td>
+                                        <td align="center"><?php echo $row['disabilitas'];?></td>
+                                        <td align="center"><?php echo $row['ektp'];?></td>
+                                        <td align="center"><?php echo $row['keterangan'];?></td>
+                                        <td align="center"><?php echo $row['sumber'];?></td>
+                                        <td align="center"><?php echo $row['tps'];?></td>
+                                    </tr>
+                                    <?php
+                                        }
+                                    ?> 
                                 </tbody>
 
                             </table>
